@@ -1,0 +1,133 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Alivio_UI_Mockup.Main" %>
+
+<!doctype html>
+<html lang="en">
+<head runat="server">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/r-2.2.3/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+    <link href="styles/styles.css" rel="stylesheet" />
+
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script>
+        function showToast(type, title, message) {
+            //Function to show a convenient toast message
+            //types are:
+            //          success
+            //          info
+            //          warning
+            //          error
+            //
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-bottom-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "4000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr[type](message, title);
+        }
+    </script>
+    <title></title>
+    <style>
+     
+    </style>
+    <asp:ContentPlaceHolder ID="HeadPlaceholder" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--Font Awesome--%>
+    <script src="https://kit.fontawesome.com/3bdb92a208.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.jpg" width="30" height="30" class="d-inline-block align-top img-responsive" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mx-2" id="navlinkDashboard">
+                    <a class="nav-link" href="Dashboard.aspx">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown mx-2" id="navlinkParticipants">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Participants
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownParticipants">
+                        <a class="dropdown-item" href="ViewParticipants.aspx">View Participants</a>
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="onboarding.aspx">Enroll Participant</a>
+                        <%-- <a class="dropdown-item" href="ManageParticipants.aspx">Manage Participants</a>--%>
+                    </div>
+                </li>
+                <li class="nav-item mx-2" id="navlinkIndicators">
+                    <a class="nav-link" href="Indicators.aspx">Indicators</a>
+                </li>
+                <li class="nav-item mx-2" id="navlinkFunds">
+                    <a class="nav-link" href="Funds.aspx">Funds</a>
+                </li>
+                <li class="nav-item mx-2" id="navlinkAdvisors">
+                    <a class="nav-link" href="AdvisorManagement.aspx">Advisors</a>
+                </li>
+                                <li class="nav-item mx-2" id="navlinkSettings">
+                    <a class="nav-link" href="Settings.aspx">Settings</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto mt-auto">
+                <li class="nav-item">
+                    <a class="nav-link pl-2" href="SignOut.aspx">Sign Out</a>
+                    <span style="color: white; position: absolute; bottom: 0; right: 0.7em; font-size: 0.9em;">Signed in as Matty Cohen</span>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <form id="form1" runat="server">
+        <div class="container container-fluid pb-5">
+            <asp:ContentPlaceHolder ID="BodyPlaceholder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer class="footer">
+        <div class="container d-flex justify-content-center">
+            <span class="text-muted">Inspiro - Esperanza</span>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/r-2.2.3/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="EndBodyPlaceholder" runat="server"></asp:ContentPlaceHolder>
+
+</body>
+</html>
